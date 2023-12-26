@@ -1,0 +1,22 @@
+mutation UserMutation($newUser: UserInput!) {
+  createUser(newUser: $newUser) {
+    name
+    email
+    password
+    role
+  }
+}
+
+query GetUsers {
+  users {
+    _id
+    email
+    name
+    role
+    myTodos:todos {
+      _id
+      description
+      title
+    }
+  }
+}
