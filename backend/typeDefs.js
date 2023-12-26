@@ -14,19 +14,29 @@ type Todo {
     description: String
     user: User
 }
+type Token{
+  token:String!
+}
   type Query {
     users: [User]
-    user(_id: ID!): User
+    user: User
+    todos: [Todo]
+    
   }
+
   type Mutation {
       createUser(newUser:UserInput!): User
+      signinUser(email: String!, password: String):Token
+      updateUser(_id: ID!, newUser: UserInput!): User
       createTodo(newTodo:TodoInput!): Todo
+      deleteTodo(_id: ID!): Boolean
   }
+
   input UserInput {
-    name: String!
-    email: String!
-    password: String!
-    role: String!    
+    name: String
+    email: String
+    password: String
+    role: String   
   }
   input TodoInput {
     user: ID!

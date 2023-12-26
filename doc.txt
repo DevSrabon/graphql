@@ -7,6 +7,14 @@ mutation UserMutation($newUser: UserInput!) {
   }
 }
 
+
+mutation UpdateUser($id: ID!, $newUser: UserInput!) {
+  updateUser(_id: $id, newUser: $newUser) {
+    email
+  }
+}
+
+
 query GetUsers {
   users {
     _id
@@ -19,4 +27,24 @@ query GetUsers {
       title
     }
   }
+}
+
+mutation Mutation($email: String!, $password: String) {
+  signinUser(email: $email, password: $password) {
+    token
+  }
+}
+
+mutation CreateTodo($newTodo: TodoInput!) {
+  createTodo(newTodo: $newTodo) {
+    title
+    description
+    user {
+      _id
+    }
+  }
+}
+
+mutation DeleteTodo($id: ID!) {
+  deleteTodo(_id: $id)
 }
