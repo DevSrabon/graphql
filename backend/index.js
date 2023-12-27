@@ -27,10 +27,6 @@ async function startServer() {
     expressMiddleware(server, {
       context: async ({ req }) => {
         const authorization = req.headers.authorization || "";
-        console.log(
-          "🚀 ~ file: index.js:30 ~ context: ~ authorization:",
-          req.headers
-        );
 
         if (authorization) {
           try {

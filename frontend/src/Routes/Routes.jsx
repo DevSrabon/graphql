@@ -1,9 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
-import Login from "../Components/Login";
-import SignUp from "../Components/SignUp";
-import Todo from "../Components/Todo";
+
 import Main from "../Layout/Main";
+import Login from "../Pages/Login";
+import SignUp from "../Pages/SignUp";
+import Todo from "../Pages/Todo";
+import Users from "../Pages/Users";
 import Home from "../pages/Home";
+import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
@@ -24,11 +27,19 @@ const router = createBrowserRouter([
         element: <SignUp />,
       },
       {
-        path: "*",
+        path: "/todo",
         element: (
           <PrivateRoute>
             <Todo />
           </PrivateRoute>
+        ),
+      },
+      {
+        path: "/users",
+        element: (
+          <AdminRoute>
+            <Users />
+          </AdminRoute>
         ),
       },
     ],

@@ -30,6 +30,7 @@ type Token{
       updateUser(_id: ID!, newUser: UserInput!): User
       createTodo(newTodo:TodoInput!): Todo
       deleteTodo(_id: ID!): Boolean
+      updateTodo(_id: ID!, newTodo: TodoInput): Todo
   }
 
   input UserInput {
@@ -39,9 +40,9 @@ type Token{
     role: String   
   }
   input TodoInput {
-    user: ID!
-    title: String!
-    description: String!
+    user: ID
+    title: String
+    description: String
   }
 `;
 

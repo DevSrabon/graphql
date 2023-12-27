@@ -1,17 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useQuery } from "@apollo/client";
-import gql from "graphql-tag";
 import { createContext } from "react";
+import { ME_USER } from "../graphql/query";
 export const AuthContext = createContext();
-const ME_USER = gql`
-  query Query {
-    user {
-      name
-      email
-      password
-    }
-  }
-`;
+
 const AuthProvider = ({ children }) => {
   const { data, loading, error } = useQuery(ME_USER);
 

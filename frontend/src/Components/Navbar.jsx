@@ -40,6 +40,12 @@ const Navbar = () => {
                   >
                     Todo
                   </Link>
+                  <Link
+                    className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    to="/users"
+                  >
+                    Users
+                  </Link>
                 </div>
               </div>
             </div>
